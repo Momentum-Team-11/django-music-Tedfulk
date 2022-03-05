@@ -6,13 +6,11 @@ from .forms import AlbumForm
 
 def list_albums(request):
     album = Album.objects.all()
-    return render(request, "albums/list_albums.html",
-                  {"album": album})
+    return render(request, "albums/list_albums.html", {"album": album})
 
 
 def album_detail(request, pk):
     album = get_object_or_404(album, pk=pk)
-
     form = AlbumForm()
     return render(
         request,
@@ -27,7 +25,6 @@ def delete_album(request, pk):
     if request.method == 'POST':
         album.delete()
         return redirect(to='list_albums')
-
     return render(request, "albums/delete_albums.html",
                   {"album": album, "pk": pk})
 
