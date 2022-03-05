@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
-from django.urls import include, path
+from django.urls import path
 from albums import views as albums_views
 
 urlpatterns = [
@@ -31,12 +31,3 @@ urlpatterns = [
     path('albums/<int:pk>/album/', albums_views.add_album, name='add_album'),
     path('albums/<int:pk>/', albums_views.album_detail, name='album_detail'),
 ]
-
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-
-        # For django versions before 2.0:
-        # url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
