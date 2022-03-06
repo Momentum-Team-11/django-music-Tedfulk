@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if album.title %}
+<div class="flex">
+ <div class="pr2"><i class="icofont-phone"></i></div>
+ <div>{{ contact.phone_number }}</div>
+</div>
+{% endif %}
+
+{% if album.artist %}
+<div class="flex">
+ <div class="pr2"><i class="icofont-ui-email"></i></div>
+ <div>{{ contact.email }}</div>
+</div>
+{% endif %}
+{% endblock %}
